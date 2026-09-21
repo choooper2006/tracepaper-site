@@ -1,0 +1,8 @@
+title: Tracepaper
+description: >-
+  Record a workflow and turn it into a step-by-step guide.
+  Everything stays in your browser.
+theme: jekyll-theme-minimal
+
+# The site is only these pages. Nothing here collects anything from a visitor:
+# no analytics, no cookies, no embedded third-party scripts.
