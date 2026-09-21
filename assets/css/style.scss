@@ -1,0 +1,50 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+/* The theme gives the content a 500px column, which is fine for a README and wrong
+   for these pages: the data-flow diagram is 67 characters wide and the outbound
+   connections table has four columns. Both were scrolling sideways or being crushed.
+   Everything below widens the column and makes the two awkward elements behave. */
+
+@media screen and (min-width: 961px) {
+  .wrapper {
+    width: 1160px;
+  }
+
+  section {
+    width: 800px;
+  }
+}
+
+/* The diagram is drawn in characters, so its width is a font-size problem. At this
+   size 67 characters fit the column with room to spare. */
+pre {
+  overflow-x: auto;
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+pre code {
+  font-size: inherit;
+}
+
+/* A wide table scrolls on its own rather than squeezing every column to nothing. */
+table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  font-size: 14px;
+}
+
+table th,
+table td {
+  vertical-align: top;
+}
+
+/* Long policy text is easier to read with a little more room between lines. */
+section p,
+section li {
+  line-height: 1.6;
+}

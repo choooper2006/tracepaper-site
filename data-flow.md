@@ -1,6 +1,6 @@
 # Tracepaper Data Flow
 
-Last updated: 19 September 2026 · Applies to version 0.5.0
+Last updated: 19 September 2026 · Applies to version 0.5.3
 
 This document exists so a school or clinic reviewer can see exactly where recorded
 content goes. If a change to Tracepaper would alter this diagram, the change does not

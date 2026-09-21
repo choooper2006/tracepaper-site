@@ -1,6 +1,6 @@
 # Tracepaper Privacy
 
-Last updated: 19 September 2026 · Applies to version 0.5.0
+Last updated: 19 September 2026 · Applies to version 0.5.3
 
 ## The short version
 
