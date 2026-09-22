@@ -1,6 +1,6 @@
 # Tracepaper Data Flow
 
-Last updated: 19 September 2026 · Applies to version 0.5.3
+Last updated: 19 September 2026 · Applies to version 0.11.1
 
 This document exists so a school or clinic reviewer can see exactly where recorded
 content goes. If a change to Tracepaper would alter this diagram, the change does not
@@ -61,7 +61,7 @@ Tracepaper has no content server.
 | Google Drive API | The single exported file you chose to save | Anything else in your Drive, anything you did not export | Only when you click "Save to Drive" |
 
 Both are opt-in. Neither exists yet — payments arrive at Step 15 and Drive export at
-Step 13. As of version 0.5.0, Tracepaper makes **zero** outbound connections.
+Step 13. As of version 0.9.0, Tracepaper makes **zero** outbound connections.
 
 ## Where each kind of data lives
 
@@ -73,6 +73,7 @@ Step 13. As of version 0.5.0, Tracepaper makes **zero** outbound connections.
 | Step sentences during a recording | `chrome.storage.session` | No | Cleared when Chrome closes |
 | Free-tier guide counter | `chrome.storage.local` | No | No |
 | Areas you chose to hide, per site | `chrome.storage.local` | No | No |
+| Fields you chose to leave visible, per site | `chrome.storage.local` | No | No |
 
 `chrome.storage.sync` is never used anywhere in this codebase. It would relay data
 through Google's servers, which would break the claim this document makes.

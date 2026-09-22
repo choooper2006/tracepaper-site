@@ -42,6 +42,8 @@ responsibility.
   connections
 - [Permissions](permissions) — every permission, why it exists, and when it is asked
   for
+- [Verify our claims](verify) — how to check all of the above yourself, without
+  contacting us
 
 ## Status
 

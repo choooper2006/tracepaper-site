@@ -1,6 +1,6 @@
 # Tracepaper Permissions
 
-Last updated: 19 September 2026 · Applies to version 0.5.3
+Last updated: 19 September 2026 · Applies to version 0.11.1
 
 Every permission Tracepaper requests is listed here, with the reason and the moment it
 is asked for. If a permission is not on this list, Tracepaper does not have it.
@@ -105,7 +105,7 @@ Three ways to confirm access really is gone:
 
 ## Planned, not yet present
 
-These are listed now so there are no surprises later. Neither exists in version 0.5.0.
+These are listed now so there are no surprises later. Neither exists in version 0.9.0.
 
 | Permission | Arrives at | Why | Scope |
 |---|---|---|---|

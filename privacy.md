@@ -1,6 +1,6 @@
 # Tracepaper Privacy
 
-Last updated: 19 September 2026 · Applies to version 0.5.3
+Last updated: 19 September 2026 · Applies to version 0.11.1
 
 ## The short version
 
@@ -43,10 +43,29 @@ should never appear — a patient banner, a student name column, a sidebar. Thos
 are destroyed on the way out of the camera, so unlike a blur you add afterwards, the
 pixels never reach your disk at all. The choice is remembered for that site.
 
+**Fields you chose to leave visible:** open the Tracepaper popup on a page, choose
+"Hide areas on this site", and switch to the **Fields** tab. It lists every field on
+the screen, each marked blurred, readable, or password. Click one to leave it readable — useful when the
+value *is* the instruction, such as "enter 20-49". The choice is remembered for that
+site.
+
+Two things about that, both deliberate. **The default is always to blur**, so anyone
+who never opens that screen is safe. And **a password field can never be exempted** —
+there is no checkbox for it, whatever else you change.
+
+The popup tells you how many fields are set to stay readable *before* you press Record,
+because a choice made on a student system in September is still in force in March.
+
 **Not blurred automatically:** what a dropdown is currently showing. A dropdown choice
 is usually the instruction itself — "select United States" — so hiding it would empty
 out the guide. If a dropdown on your system shows a person's name or anything else
 private, blur it by hand in the editor before you share the guide.
+
+You can also blur anything yourself afterwards: open a guide, press the blur button
+on a step, and drag boxes over whatever should be hidden — a name in a heading, a
+record number in a table. That blur is permanent in exactly the same way. The pixels
+are averaged away and the new image replaces the old, so there is nothing underneath to
+recover and no setting that brings it back.
 
 The blur is permanent and it happens first. The screenshot is scaled down, every field
 region is averaged into blocks, and only then is anything written to disk. The
@@ -54,8 +73,9 @@ full-size original exists for a few milliseconds inside the extension and is dis
 There is no pristine copy underneath for anyone to recover, and no setting that brings
 one back.
 
-Screenshots are saved at 1280 pixels wide, which keeps a long guide to a few megabytes
-instead of sixty.
+Screenshots are saved at 1920 pixels wide, which is about 44 KB each — roughly
+1.3 MB for a guide of thirty steps. Wider captures are scaled down to that; narrower
+ones are left alone and never enlarged.
 
 ## Which websites Tracepaper can see
 
@@ -123,8 +143,9 @@ nothing from anyone, including children.
 
 ## How to check any of this yourself
 
-See [Where your data goes](data-flow) for a diagram, and [Permissions](permissions)
-for why the extension asks for each thing it asks for. The code is structured so that
+See [Where your data goes](data-flow) for a diagram, [Permissions](permissions)
+for why the extension asks for each thing it asks for, and [Verify our claims](verify) for
+step-by-step instructions on checking all of it yourself. The code is structured so that
 a reviewer can verify these claims without taking our word for it:
 
 - The manifest restricts network connections to the extension itself.
