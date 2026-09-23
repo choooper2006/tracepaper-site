@@ -1,6 +1,6 @@
 # Tracepaper Permissions
 
-Last updated: 22 September 2026 · Applies to version 0.11.2
+Last updated: 22 September 2026 · Applies to version 0.11.3
 
 Every permission Tracepaper requests is listed here, with the reason and the moment it
 is asked for. If a permission is not on this list, Tracepaper does not have it.
@@ -105,12 +105,13 @@ Three ways to confirm access really is gone:
 
 ## Planned, not yet present
 
-These are listed now so there are no surprises later. Neither exists in version 0.9.0.
+These are listed now so there are no surprises later. Neither exists in the version
+named at the top of this page.
 
-| Permission | Arrives at | Why | Scope |
-|---|---|---|---|
-| `identity` plus Google's `drive.file` scope | Step 13 | Saving an exported guide to your own Google Drive. | `drive.file` lets Tracepaper see only files it created itself. It cannot read anything else in your Drive. |
-| A network connection to ExtensionPay | Step 15 | Checking whether you have paid for Pro. | Sends your email address and install ID. Never guide content. |
+| Permission | Why | Scope |
+|---|---|---|
+| `identity` plus Google's `drive.file` scope | Saving an exported guide to your own Google Drive. | `drive.file` lets Tracepaper see only files it created itself. It cannot read anything else in your Drive. |
+| A network connection to ExtensionPay | Checking whether you have paid for Pro. | Sends your email address and install ID. Never guide content. |
 
 ## Permissions Tracepaper will never request
 
