@@ -1,6 +1,6 @@
 # Tracepaper Permissions
 
-Last updated: 22 September 2026 · Applies to version 0.11.1
+Last updated: 22 September 2026 · Applies to version 0.11.2
 
 Every permission Tracepaper requests is listed here, with the reason and the moment it
 is asked for. If a permission is not on this list, Tracepaper does not have it.

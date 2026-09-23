@@ -1,6 +1,6 @@
 # Verify Tracepaper's Claims
 
-Last updated: 22 September 2026 · Applies to version 0.11.1
+Last updated: 22 September 2026 · Applies to version 0.11.2
 
 Every privacy claim on this site is meant to be checked, not believed. This page is
 how. None of it requires contacting us, and none of it requires a tool you do not
