@@ -7,8 +7,7 @@ title: Tracepaper
 Record a workflow in Chrome and turn it into an editable, step-by-step guide.
 
 **Tracepaper has no server and no account.** Your guides and screenshots stay in your
-own browser until you export them yourself as PDF, Word, Markdown, HTML, or a file in
-your own Google Drive.
+own browser until you export them yourself, as a PDF, a web page or Markdown.
 
 We cannot see your guides. Not because we promise not to look — because there is no
 copy anywhere we could look at.
@@ -30,8 +29,8 @@ responsibility.
 - Photographs each step, and **destroys the contents of every text field** before the
   picture is written to disk. There is no original underneath to recover.
 - Lets you mark areas to hide *before* recording, so those pixels are never saved.
-- Never reads what you type. Password fields are never photographed and never become
-  a step.
+- Never reads what you type. A password field never becomes a step, and is always
+  blurred in screenshots — no setting can make one readable.
 - Asks permission for one website at a time, by name, and hands that permission back
   when the recording ends.
 

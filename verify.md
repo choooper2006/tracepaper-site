@@ -1,6 +1,6 @@
 # Verify Tracepaper's Claims
 
-Last updated: 22 September 2026 · Applies to version 0.11.3
+Last updated: 23 September 2026 · Applies to version 0.12.0
 
 Every privacy claim on this site is meant to be checked, not believed. This page is
 how. None of it requires contacting us, and none of it requires a tool you do not
@@ -32,21 +32,34 @@ This is the claim everything else rests on, and it is the easiest one to test.
 3. In another tab, use Tracepaper normally: record a guide, edit it, blur something,
    export it as a PDF and as a web page.
 4. Come back and press **Stop Logging**.
-5. Open the saved `.json` file in a text editor and search it for `tracepaper`.
+5. Open the saved `.json` file in a text editor and search it for
+   `lhflcpbdlckocgneldfbafillhakbdch`, which is Tracepaper's extension ID.
 
-Nothing belonging to the extension should appear, because there is nowhere for it to
-connect to. Tracepaper has no server for your content. We did not build one and then
-promise not to look at it.
+Chrome records which extension started each request, so anything Tracepaper sent
+would carry that ID. Matches on addresses beginning `chrome-extension://` are the
+extension opening its own files, which never leave your computer. A match beside an
+`http://` or `https://` address would be Tracepaper talking to the internet, and there
+should be none. Searching for the word "tracepaper" instead would prove nothing: a
+leak to somewhere else would not contain that word.
 
-A quicker version of the same test: open the Privacy review screen, press F12, choose
-the Network tab, and export a guide. Exports are assembled in memory and handed
-straight to your downloads folder.
+Tracepaper has no server for your content. We did not build one and then promise not
+to look at it.
+
+A quicker version of the same test: open a guide in the editor, press F12, choose the
+Network tab, and export the guide in every format. Exports are assembled in that page's
+memory and handed straight to your downloads folder, so the tab stays empty. For the
+recording side, go to `chrome://extensions`, click **service worker** under
+Tracepaper, open its Network tab, and record a guide.
 
 ## Check what is stored, and where
 
-Press F12 on any page, choose **Application**, then **IndexedDB**, then `tracepaper`.
+Open the Privacy review screen, or any guide in the editor, then press F12 and choose
+**Application**, then **IndexedDB**, then `tracepaper`. It has to be one of the
+extension's own pages: a website's developer tools show that website's storage, not
+Tracepaper's.
 
-You will find two stores: `guides` and `images`. That is everything. Guides and
+You will find two stores: `guides` and `images`. That is everything. A recording you
+have stopped but not yet named is in `guides` too, marked as a draft. Guides and
 screenshots are never written to `chrome.storage.sync`, which would relay them through
 Google's servers to your other devices.
 

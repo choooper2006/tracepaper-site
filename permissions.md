@@ -1,6 +1,6 @@
 # Tracepaper Permissions
 
-Last updated: 22 September 2026 · Applies to version 0.11.3
+Last updated: 23 September 2026 · Applies to version 0.12.0
 
 Every permission Tracepaper requests is listed here, with the reason and the moment it
 is asked for. If a permission is not on this list, Tracepaper does not have it.
@@ -19,7 +19,7 @@ extension and it is deliberate.
 |---|---|---|
 | `storage` | Saves your settings and the recording state. Chrome requires it for both. | Does not grant access to any website. Chrome shows no warning for it. |
 | `scripting` | Lets Tracepaper run its recorder, and its area picker, in the tab you are working on. On its own it grants access to nothing: it is useless without permission for a site. | Cannot reach any website by itself. Chrome shows no warning for it. |
-| `activeTab` | Lets Tracepaper see the address of the tab you are looking at, and lets you pick areas to hide on it, but **only while the popup is open**. Without it, Tracepaper could not tell you which site it is about to ask permission for. | Does not give any access while the popup is closed, and none at all to your other tabs. Chrome shows no warning for it. |
+| `activeTab` | Lets Tracepaper see the address of the tab you clicked its button on, and lets you pick areas to hide on it. Without it, Tracepaper could not tell you which site it is about to ask permission for. | Covers **only the tab you clicked it on**, and ends when that tab moves to another page or closes. No access to your other tabs. Chrome shows no warning for it. |
 
 ## Requested later, only when you act
 
@@ -32,9 +32,13 @@ websites."
 
 ## Access is handed back when you stop
 
-When a recording ends — you pressed Stop, you closed the tab, or the tab left the site
-you approved — Tracepaper **gives the site permission back to Chrome**. While no
+When a recording ends — you pressed Stop, or you closed the tab — Tracepaper **gives
+back every site permission it was granted during that recording**. While no
 recording is running, Tracepaper holds access to nothing.
+
+If the recorded tab moves to a site you have not approved, the recording pauses and
+asks. Sites already approved in that recording stay granted until it ends, so that
+coming back to one does not interrupt you.
 
 Chrome does not do this on its own. Extensions normally keep a granted site forever, so
 a permission list quietly grows for years. Tracepaper releases it so that "this
@@ -60,7 +64,9 @@ So the accurate statement is:
 - **A site you have never approved always prompts.**
 
 If you want a site out of the granted set entirely, remove and reinstall the extension;
-that is the only thing that clears it.
+that is the only thing that clears it. **Removing the extension also deletes every
+guide you have saved**, because they are stored inside it. Export anything you want
+to keep first.
 
 Choosing areas to hide asks for nothing at all: it runs on `activeTab`, so no site is
 added to Chrome's list just because you marked something on it.
@@ -95,13 +101,16 @@ re-acquire a site in some later update without that site being visible to you. S
 list is best read as **a permanent record of every site you have ever approved**, and
 the toggle beside each row is the live answer.
 
-Three ways to confirm access really is gone:
+Two ways to confirm access really is gone:
 
 1. **The toggle next to the site is off.** Off means no access.
-2. **The Tracepaper popup says "Site access: none granted."** That line is read live
-   from Chrome's permissions API and is the authoritative answer.
-3. **Press Record on that site again.** If Chrome prompts you, the permission was
-   released. An extension that still had access would start recording silently.
+2. **The Tracepaper popup says "Site access: none granted,"** and the Privacy review
+   screen lists no sites. Both are read live from Chrome's permissions API and are
+   the authoritative answer.
+
+Pressing Record on the site again is **not** a test. Because the site is in the
+granted set, Chrome grants it again without a prompt, so no prompt proves nothing
+either way.
 
 ## Planned, not yet present
 

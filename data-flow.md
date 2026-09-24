@@ -1,6 +1,6 @@
 # Tracepaper Data Flow
 
-Last updated: 22 September 2026 · Applies to version 0.11.3
+Last updated: 23 September 2026 · Applies to version 0.12.0
 
 This document exists so a school or clinic reviewer can see exactly where recorded
 content goes. If a change to Tracepaper would alter this diagram, the change does not
@@ -45,7 +45,7 @@ ship until this file is updated.
                                             │
                      ┌──────────────────────┴──────────────────────┐
                      ▼                                             ▼
-          your Downloads folder                       your own Google Drive
+          your Downloads folder                       your own Google Drive (planned)
           (stays on this computer)                    (drive.file scope only,
                                                        only if you choose it)
 ```
@@ -69,7 +69,6 @@ When either one ships, it will appear in the change log at the foot of this page
 | Data | Storage | Syncs to Google? | Survives "Clear browsing data"? |
 |---|---|---|---|
 | Guides and screenshots | IndexedDB (`tracepaper`) | No | No |
-| Settings (blur defaults, URL toggle) | `chrome.storage.local` | No | No |
 | Recording state while recording | `chrome.storage.session` | No | Cleared when Chrome closes |
 | Step sentences during a recording | `chrome.storage.session` | No | Cleared when Chrome closes |
 | Free-tier guide counter (not built yet) | `chrome.storage.local` | No | No |
@@ -100,11 +99,15 @@ Three layers, each checkable by a stranger:
 
 ## How to verify it yourself in two minutes
 
-1. Open `chrome://extensions`, enable Developer mode.
-2. Find Tracepaper and click **service worker** to open its developer tools.
-3. Open the **Network** tab and leave it open.
-4. Record a guide, edit it, export it.
-5. The Network tab stays empty.
+1. Open `chrome://extensions` and enable Developer mode.
+2. Under Tracepaper, click **service worker** to open its developer tools, and open
+   the **Network** tab. Recording and screenshots happen here.
+3. Record a guide. The Network tab stays empty.
+4. Open the guide in the editor, press F12 there, and open that **Network** tab too.
+   Editing and exporting happen in the editor page, not the service worker.
+5. Edit the guide and export it in every format. That tab stays empty as well.
+
+[Verify our claims](verify) has a fuller test using Chrome's own network log.
 
 ## Change log for this document
 
@@ -118,6 +121,7 @@ check, and `chrome://net-export` checks it better than any table can.
 
 | Date | Version | Change |
 |---|---|---|
+| 23 Sep 2026 | 0.12.0 | **A stopped recording is written to IndexedDB at once**, as an unnamed draft, instead of waiting in session memory until you chose to keep it. A guide's name no longer defaults to the site's address, so the address reaches an export only if you tick **Include the site address in exports**. A screenshot is kept only if the tab is still showing the page that was clicked. Nothing new is sent. |
 | 22 Sep 2026 | 0.11.0 | **Delete everything** added: one action clears both IndexedDB stores and `chrome.storage.local`. Nothing new is written or sent. |
 | 22 Sep 2026 | 0.10.0 | Markdown export, to the same downloads folder: a `.zip` holding `guide.md` and an `images` folder, assembled in memory. |
 | 22 Sep 2026 | 0.9.0 | **The first time content leaves the extension.** Guides can be exported as a self-contained HTML file and as PDF, both handed straight to your downloads folder. Nothing is uploaded and no export service is contacted. |

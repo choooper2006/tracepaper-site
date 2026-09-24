@@ -1,6 +1,6 @@
 # Tracepaper Privacy
 
-Last updated: 22 September 2026 · Applies to version 0.11.3
+Last updated: 23 September 2026 · Applies to version 0.12.0
 
 ## The short version
 
@@ -19,13 +19,17 @@ Only while you are recording, and only in the tab you chose:
 - Where on the page you clicked
 - The visible label of the thing you clicked, such as the word on a button, used to
   write the step — `Click "Save"`. Labels are cut off at 60 characters.
-- The page address and title, if you turn that option on (it is off by default)
+- Which site you recorded, such as `workspace.google.com`, so your guide list can
+  show it. Never the full page address, and never the page title. The site appears
+  in an export only if you tick **Include the site address in exports** in the
+  editor; it is off for every guide until you do.
 
 ## What Tracepaper never records
 
 - **Anything you type.** Tracepaper never reads the value of a form field. Step text
   is built from the field's *label*, never its contents.
-- **Password fields.** These are never photographed and never become a step.
+- **Password fields.** A password field never becomes a step. It is always blurred
+  in screenshots, and no setting can make it readable.
 - **Your other tabs, your desktop, your camera, your microphone, your browser history,
   or your cookies.**
 
@@ -101,8 +105,10 @@ to discard it when disk space runs low. That is a request, not a guarantee, and 
 nothing to protect against clearing browsing data on purpose. Every guide that has
 never been exported is labelled as such, in the guide list and on the guide itself.
 
-Stopping a recording does not save it. You are asked whether to keep it, and a guide
-you discard is deleted along with its screenshots straight away.
+When you stop a recording it is saved on this computer straight away, as an unnamed
+draft, so closing Chrome before you decide does not lose it. You then name it to keep
+it, or discard it. A discarded recording is deleted along with its screenshots
+straight away.
 
 ## What leaves your computer
 
@@ -110,14 +116,18 @@ Nothing, unless you ask for it:
 
 - **Exporting** a guide writes a file to your Downloads folder. It does not pass
   through us.
-- **Saving to Google Drive** sends the file from your browser to your own Google
+That is the complete list today. Two more are planned, and neither exists in the
+version named at the top of this page:
+
+- **Saving to Google Drive** will send the file from your browser to your own Google
   Drive account, using a permission that only lets Tracepaper see files it created.
   Google is your provider in that transaction, not ours.
-- **Paying for Pro** sends your email address to ExtensionPay, which runs on Stripe,
-  so it can answer one question: has this person paid? It never receives guide
-  content, screenshots, or anything you recorded.
+- **Paying for Pro** will send your email address to ExtensionPay, which runs on
+  Stripe, so it can answer one question: has this person paid? It will never
+  receive guide content, screenshots, or anything you recorded.
 
-That is the complete list.
+When either arrives, this page, [Where your data goes](data-flow) and the version number
+above will change together.
 
 ## Analytics
 
@@ -151,8 +161,8 @@ a reviewer can verify these claims without taking our word for it:
 - The manifest restricts network connections to the extension itself.
 - `scripts/check-network.sh` fails the build if any networking code appears outside
   the payments module.
-- You can open the service worker's developer tools, record a guide, and watch the
-  Network tab stay empty.
+- Chrome's own tools will show you the network traffic, or the lack of it;
+  [Verify our claims](verify) explains how.
 
 ## Contact
 
